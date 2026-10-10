@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday 🎀</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ffc8dd;--pink2:#ff9ec4;--purple:#cdb4db;--cream:#fff6ea;--white:#fff;--ink:#6b4a63;--card:#ffffffd9;--bg:#fff0f6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#f5dcea;--card:#3b2b4aea;--bg:#2a1f38;--cream:#4a3a5c}}
+:root[data-theme="dark"]{--ink:#f5dcea;--card:#3b2b4aea;--bg:#2a1f38;--cream:#4a3a5c}
+html{scroll-behavior:smooth;scroll-padding-top:60px}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(160deg,var(--bg),var(--cream) 50%,#e9ddf5);background-attachment:fixed;color:var(--ink);font-family:Nunito,"Trebuchet MS",sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+h1,h2,.hand{font-family:Pacifico,"Brush Script MT",cursive;font-weight:400;color:var(--pink2)}
+h2{font-size:clamp(1.5rem,6vw,2.2rem);text-align:center;margin:0 0 .6em}
+section{min-height:100vh;padding:70px 20px 50px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative}
+button{font:inherit;font-weight:800;border:0;border-radius:999px;padding:14px 28px;background:linear-gradient(135deg,var(--pink2),var(--purple));color:#fff;cursor:pointer;box-shadow:0 6px 0 #d97aa8aa;transition:transform .15s}
+button:active{transform:translateY(4px);box-shadow:0 2px 0 #d97aa8aa}
+.reveal{opacity:0;transform:translateY(30px);transition:all .9s ease}.reveal.in{opacity:1;transform:none}
+#cv{position:fixed;inset:0;pointer-events:none;z-index:60}
+.fl{position:fixed;bottom:-30px;pointer-events:none;z-index:1;animation:up linear forwards}
+@keyframes up{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+/* intro */
+#intro{position:fixed;inset:0;z-index:50;background:linear-gradient(160deg,#ffe3ef,#e9ddf5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:20px;text-align:center;transition:opacity 1s,visibility 1s}
+#intro.gone{opacity:0;visibility:hidden}
+#intro h1{font-size:clamp(1.7rem,8vw,2.8rem);margin:0}
+#intro p{margin:0;max-width:340px}
+.env{position:relative;width:240px;height:160px;background:#ffb6d1;border-radius:10px;box-shadow:0 12px 30px #c77da855;margin:10px 0}
+.env .flap{position:absolute;top:0;left:0;width:100%;height:90px;background:#ff9ec4;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s;z-index:3}
+.env .paper{position:absolute;left:20px;right:20px;top:10px;bottom:10px;background:#fff;border-radius:6px;transition:transform .8s .5s;z-index:2;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.env .front{position:absolute;inset:0;background:linear-gradient(135deg,#ffc8dd 50%,#ffb0cf 50%);clip-path:polygon(0 100%,0 40%,50% 70%,100% 40%,100% 100%);z-index:4;border-radius:10px}
+.env .bow{position:absolute;top:70px;left:50%;transform:translateX(-50%);font-size:2.4rem;z-index:5;transition:opacity .4s}
+.env.open .flap{transform:rotateX(180deg);z-index:1}.env.open .paper{transform:translateY(-70px)}.env.open .bow{opacity:0}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:center;gap:6px;padding:calc(8px + env(safe-area-inset-top,0px)) 8px 8px;background:var(--card);backdrop-filter:blur(8px);overflow-x:auto}
+nav a{color:var(--ink);text-decoration:none;font-weight:800;font-size:.85rem;padding:6px 12px;border-radius:999px;white-space:nowrap}
+nav a:hover{background:var(--pink)}
+#main{display:none}#main.show{display:block}
+/* hero + cake */
+.hero h1{font-size:clamp(1.6rem,7vw,2.6rem);margin:.2em 0;min-height:2.6em}
+.cake{position:relative;width:200px;height:190px;margin:30px auto 20px}
+.cake .pl{position:absolute;bottom:0;left:-15px;width:230px;height:14px;background:#f3d6e6;border-radius:50%}
+.cake .l{position:absolute;left:0;right:0;border-radius:14px}
+.cake .l1{bottom:10px;height:62px;background:#ffc8dd}.cake .l2{bottom:72px;height:50px;left:22px;right:22px;background:#e2d0f0}
+.cake .l1:before,.cake .l2:before{content:"";position:absolute;top:0;left:0;right:0;height:16px;background:#fff;border-radius:14px 14px 40% 40%}
+.cake .cd{position:absolute;bottom:122px;width:10px;height:34px;background:repeating-linear-gradient(45deg,#ff9ec4 0 6px,#fff 6px 12px);border-radius:3px}
+.cake .fire{position:absolute;top:-22px;left:-3px;width:16px;height:22px;background:radial-gradient(#fff6a8,#ffb347);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:fl .5s infinite alternate;transition:opacity .5s}
+@keyframes fl{to{transform:scale(1.15,.9) rotate(4deg)}}
+.cake.off .fire{opacity:0}
+.sub{max-width:420px;margin:.4em auto 1em}
+/* letter */
+.card{width:min(560px,100%);background:var(--card);border-radius:22px;padding:24px;box-shadow:0 10px 30px #c77da833;border:2px dashed var(--purple)}
+.lt{display:none;text-align:left}.lt.show{display:block;animation:pop .7s}
+.lt p{margin:0 0 1em}
+@keyframes pop{from{opacity:0;transform:scale(.85) translateY(20px)}}
+.big{font-size:3.4rem;line-height:1}
+/* gallery */
+.gal{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;max-width:700px}
+.pol{width:150px;background:#fff;padding:10px 10px 8px;box-shadow:0 8px 18px #c77da855;border-radius:4px;color:#6b4a63;transition:transform .3s}
+.pol:nth-child(odd){transform:rotate(-4deg)}.pol:nth-child(even){transform:rotate(3.5deg)}.pol:hover{transform:rotate(0) scale(1.06)}
+.pol .ph{height:130px;border-radius:2px;background:linear-gradient(135deg,var(--pink),var(--purple));display:flex;align-items:center;justify-content:center;font-size:2.6rem;overflow:hidden}
+.pol img{width:100%;height:100%;object-fit:cover}
+.pol small{display:block;margin-top:8px;font-weight:700;font-size:.8rem}
+/* music */
+.pl-box{display:flex;flex-direction:column;gap:14px;align-items:center;width:min(380px,100%)}
+.disc{font-size:3.4rem}.spin .disc{animation:rot 3s linear infinite}@keyframes rot{to{transform:rotate(360deg)}}
+input[type=range]{width:100%;accent-color:var(--pink2)}
+.note{font-size:.8rem;opacity:.7}
+/* closing */
+.hug{position:fixed;inset:0;z-index:70;background:#ffe3efee;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:20px}
+.hug.show{display:flex}.hug .bear{font-size:6rem;animation:bounce 1s infinite alternate}
+@keyframes bounce{to{transform:scale(1.2) rotate(-6deg)}}
+.hug p{font-family:Pacifico,cursive;color:#d6609a;font-size:1.4rem;margin:0}
+.hug button{margin-top:14px}
+.cur{display:inline-block;width:2px;background:var(--pink2);animation:bl 1s steps(1) infinite;margin-left:2px}@keyframes bl{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+
+<div id="intro">
+  <h1 class="hand">happy birthday! 🎀</h1>
+  <p>hari ini harinya kamu, semoga hari ini seru dan menyenangkan ✨</p>
+  <div class="env" id="env"><div class="paper">💌</div><div class="flap"></div><div class="front"></div><div class="bow">🎀</div></div>
+  <button id="openBtn">open your surprise 🎁</button>
+</div>
+
+<nav id="nav"><a href="#home">home</a><a href="#letter">letter</a><a href="#gallery">memories</a><a href="#song">song</a><a href="#end">end</a></nav>
+
+<main id="main">
+  <section id="home" class="hero">
+    <div class="hand" style="font-size:1.1rem">✨ <span id="who">Fitry</span><span id="age"></span> ✨</div>
+    <h1 id="typed"></h1>
+    <div class="cake" id="cake">
+      <div class="pl"></div><div class="l l1"></div><div class="l l2"></div>
+      <div class="cd" style="left:55px"><div class="fire"></div></div>
+      <div class="cd" style="left:95px"><div class="fire"></div></div>
+      <div class="cd" style="left:135px"><div class="fire"></div></div>
+    </div>
+    <p class="sub" id="wishMsg">close your eyes, think of something lovely, then make a wish 🌸</p>
+    <button id="wishBtn">make a wish ✨</button>
+    <p class="note" id="dateTxt"></p>
+  </section>
+
+  <section id="letter">
+    <h2 class="reveal">a letter for you</h2>
+    <div class="card reveal" id="envCard" style="text-align:center">
+      <div class="big">💌</div>
+      <p>ada surat kecil buat kamu...</p>
+      <button id="letterBtn">open the card 💌</button>
+    </div>
+    <div class="card lt" id="lt"></div>
+  </section>
+
+  <section id="gallery">
+    <h2 class="reveal">little memories</h2>
+    <div class="card reveal" style="text-align:center"><div class="big">📸</div><p>aku nggak bisa pakai fotomu sebagai memori kecil, jadi yaudah deh, aku taruh IG kamu aja di sini. Biar bisa langsung lihat di akunnya kalau mau liat 😄</p><a href="https://www.instagram.com/ftryy_yyaaa/" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none;font-weight:800;border-radius:999px;padding:14px 28px;background:linear-gradient(135deg,var(--pink2),var(--purple));color:#fff;box-shadow:0 6px 0 #d97aa8aa">@ftryy_yyaaa ↗</a></div>
+  </section>
+
+  <section id="song">
+    <h2 class="reveal">a little song for you 🎵</h2>
+    <div class="card pl-box reveal" id="player">
+      <div class="disc">💿</div>
+      <strong id="songTitle">Semua Aku Dirayakan - Nadin Amizah</strong>
+      <audio id="au" preload="none"></audio>
+      <input type="range" id="bar" min="0" max="100" value="0" aria-label="progress">
+      <div class="note"><span id="t1">0:00</span> / <span id="t2">0:00</span></div>
+      <div style="display:flex;gap:10px"><button id="playBtn">▶ play</button><button id="pauseBtn">❚❚ pause</button></div>
+      <p class="note" id="musicNote"></p>
+    </div>
+  </section>
+
+  <section id="end">
+    <h2 class="reveal">another year older, another year more wonderful ♡</h2>
+    <p class="sub reveal" style="max-width:480px">semoga tahun terakhir di sekolah ini menyenangkan buat kamu. keep smiling, tetap semangat, dan sukses terus ya. happy birthday, once again! 🎀</p>
+    <button id="hugBtn" class="reveal">kirim semangat ✨</button>
+  </section>
+</main>
+
+<div class="hug" id="hug"><div class="bear">🧸</div><p>sending you good vibes! 🧸✨</p><button id="hugClose">close ♡</button></div>
+
+<script>
+/* ===== CONFIG — edit di sini ===== */
+const CONFIG={
+  name:"Fitry",
+  age:"",                        // isi umur kalau mau tampil, contoh "16"
+  date:"",                       // isi tanggal ulang tahun, contoh "1 Januari"
+  music:"lagu.mp3",                      // contoh: "lagu.mp3" (taruh sefolder dengan index.html)
+  musicTitle:"Semua Aku Dirayakan - Nadin Amizah",
+  photos:[                       // src: "foto1.jpg" kalau sudah ada fotonya
+    {src:"",caption:"momen seru 🌷"},
+    {src:"",caption:"hari yang kocak 🍓"},
+    {src:"",caption:"kenangan bareng ☁️"},
+    {src:"",caption:"keep shining ✨"}
+  ],
+  letter:[
+    "happy birthday yaaa!! 🥳🤍🎂",
+    "semoga di umur kamu yang sekarang, banyak hal baik yang dateng ke hidup kamu. semoga selalu dikasih kesehatan, kebahagiaan, dilancarin semua urusannya, dan apa pun yang lagi kamu usahain sekarang bisa dapet hasil yang terbaik. semoga kamu juga selalu dikelilingi orang-orang baik yang tulus sama kamu.",
+    "kalau nanti ada hari-hari yang terasa berat, semoga kamu selalu punya alasan buat tetap senyum dan semangat lagi. jangan terlalu keras sama diri sendiri yaa, kamu juga berhak istirahat dan bahagia tanpa harus selalu keliatan kuat di depan semua orang.",
+    "pokoknya doa terbaik buat kamu, semoga satu per satu keinginan kamu bisa terwujud, hal-hal yang bikin kamu sedih segera diganti sama kebahagiaan, dan semoga tahun ini jadi tahun yang jauh lebih baik dari tahun sebelumnya. tetap jadi diri kamu sendiri, tetap jadi orang baik, dan jangan lupa bahagiaa hahaha.",
+    "enjoy your special day yaa! semoga hari ini penuh senyum, banyak kejutan manis, dan banyak hal yang bikin kamu ngerasa disayang. once again, happy birthday! wish you all the best, always."
+  ]
+};
+/* ================================= */
+const $=id=>document.getElementById(id);
+$('who').textContent=CONFIG.name;$('age').textContent=CONFIG.age?' · '+CONFIG.age+' y/o':'';
+$('dateTxt').textContent=CONFIG.date?'🎂 '+CONFIG.date:'';
+
+/* canvas confetti */
+const cv=$('cv'),cx=cv.getContext('2d');let P=[],raf=0;
+function rs(){cv.width=innerWidth;cv.height=innerHeight}addEventListener('resize',rs);rs();
+function confetti(n=90,ox=innerWidth/2,oy=innerHeight/2){
+  const col=['#ff9ec4','#cdb4db','#ffe08a','#a8e6cf','#fff'];
+  for(let i=0;i<n;i++)P.push({x:ox,y:oy,vx:(Math.random()-.5)*14,vy:Math.random()*-12-3,s:4+Math.random()*6,c:col[i%5],r:Math.random()*6,l:100+Math.random()*40});
+  if(!raf)loop();
+}
+function loop(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  P=P.filter(p=>p.l>0);
+  P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.35;p.vx*=.99;p.r+=.2;p.l--;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.globalAlpha=Math.min(1,p.l/30);cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);cx.restore()});
+  raf=P.length?requestAnimationFrame(loop):0;if(!raf)cx.clearRect(0,0,cv.width,cv.height);
+}
+
+/* floating things */
+function floatEl(txt,cls){
+  const e=document.createElement('div');e.className='fl';e.textContent=txt;
+  e.style.left=Math.random()*95+'vw';e.style.fontSize=(16+Math.random()*22)+'px';
+  e.style.animationDuration=(5+Math.random()*5)+'s';document.body.appendChild(e);
+  setTimeout(()=>e.remove(),10500);
+}
+function burst(list,n){for(let i=0;i<n;i++)setTimeout(()=>floatEl(list[i%list.length]),i*120)}
+let bg=setInterval(()=>{if(!document.hidden)floatEl(['💗','✨','🌸','☁️','⭐'][Math.random()*5|0])},1800);
+
+/* cursor hearts */
+let last=0;
+function heart(e){
+  const n=Date.now();if(n-last<90)return;last=n;
+  const h=document.createElement('div');h.textContent='💖';
+  h.style.cssText='position:fixed;pointer-events:none;z-index:80;font-size:14px;transition:all .9s;left:'+e.clientX+'px;top:'+e.clientY+'px';
+  document.body.appendChild(h);
+  requestAnimationFrame(()=>{h.style.transform='translateY(-40px) scale(1.5)';h.style.opacity=0});
+  setTimeout(()=>h.remove(),900);
+}
+addEventListener('pointermove',heart);addEventListener('pointerdown',heart);
+
+/* typing */
+function typeTo(el,text,sp=55){
+  el.textContent='';let i=0;const c=document.createElement('span');c.className='cur';c.innerHTML='&nbsp;';
+  (function s(){el.textContent=text.slice(0,++i);el.appendChild(c);if(i<text.length)setTimeout(s,sp);else setTimeout(()=>c.remove(),1500)})();
+}
+
+/* intro */
+$('openBtn').onclick=()=>{
+  $('env').classList.add('open');$('openBtn').disabled=true;
+  burst(['💗','💖','💕','🌸'],18);
+  setTimeout(()=>{$('intro').classList.add('gone');$('main').classList.add('show');window.scrollTo(0,0);confetti(80,innerWidth/2,innerHeight/3);typeTo($('typed'),'selamat ulang tahun! 🎂')},1700);
+};
+
+/* wish */
+let wished=false;
+$('wishBtn').onclick=()=>{
+  if(wished){confetti(60);return}
+  wished=true;$('cake').classList.add('off');
+  confetti(140);burst(['⭐','✨','🌟','💫'],20);
+  $('wishMsg').textContent='your wish is on its way to the stars ✨ semoga terkabul ya!';
+  $('wishBtn').textContent='yay! 🎉';
+};
+
+/* letter */
+/* suara + teks mengetik mengikuti audio */
+const vo=new Audio('suara.mp3');
+$('letterBtn').onclick=()=>{
+  $('envCard').style.display='none';
+  const lt=$('lt'),paras=CONFIG.letter.map(t=>t.replace('{name}',CONFIG.name)),W=10;
+  const total=paras.reduce((a,t)=>a+t.length+W,0);
+  lt.innerHTML='<div id="lp">'+paras.map(()=>'<p></p>').join('')+'</div><div style="text-align:center"><button id="rp">putar ulang 🔊</button></div>';
+  const ps=[...lt.querySelectorAll('#lp p')];
+  const render=f=>{let u=f*total;ps.forEach((p,i)=>{const n=paras[i].length,k=Math.max(0,Math.min(n,u));p.textContent=paras[i].slice(0,k)+((u>0&&u<n)?'▍':'');u-=n+W})};
+  let timer=0;
+  const tick=()=>{if(vo.duration)render(Math.min(1,vo.currentTime/(vo.duration*.96)));if(!vo.paused&&!vo.ended)timer=requestAnimationFrame(tick)};
+  const fallback=()=>{let f=0;(function s(){f+=.004;render(Math.min(1,f));if(f<1)setTimeout(s,40)})()};
+  const run=()=>{cancelAnimationFrame(timer);render(0);vo.pause();vo.currentTime=0;au.pause();$('player').classList.remove('spin');
+    vo.play().then(tick).catch(fallback)};
+  vo.onended=()=>render(1);
+  lt.classList.add('show');burst(['💗','💌'],8);
+  $('rp').onclick=run;run();
+};
+
+/* gallery */
+
+
+/* music */
+const au=$('au'),bar=$('bar');
+const fmt=s=>isFinite(s)?Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'):'0:00';
+$('songTitle').textContent=CONFIG.musicTitle;
+if(CONFIG.music)au.src=CONFIG.music;else $('musicNote').textContent='(belum ada lagu — isi CONFIG → music dengan nama file mp3)';
+$('playBtn').onclick=()=>{if(!CONFIG.music)return;au.play().then(()=>$('player').classList.add('spin')).catch(()=>{$('musicNote').textContent='file lagu tidak bisa diputar'})};
+$('pauseBtn').onclick=()=>{au.pause();$('player').classList.remove('spin')};
+au.ontimeupdate=()=>{if(au.duration)bar.value=au.currentTime/au.duration*100;$('t1').textContent=fmt(au.currentTime)};
+au.onloadedmetadata=()=>$('t2').textContent=fmt(au.duration);
+bar.oninput=()=>{if(au.duration)au.currentTime=bar.value/100*au.duration};
+
+/* hug */
+$('hugBtn').onclick=()=>{$('hug').classList.add('show');confetti(100);burst(['💗','🧸','💖'],16)};
+$('hugClose').onclick=()=>$('hug').classList.remove('show');
+
+/* reveal + closing balloons */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.closest('#end')&&!window._b){window._b=1;burst(['🎈','🎈','💗','🎈'],14);confetti(70,innerWidth/2,innerHeight*.8)}}}),{threshold:.3});
+document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
